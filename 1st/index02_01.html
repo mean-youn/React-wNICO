@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="root"></div>
+</body>
+<!-- starting react -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+<!-- Creating React //Most difficult way-->
+<script>
+    const root = document.getElementById("root");
+    // tag, id or class, content
+    const span = React.createElement(
+        "span", 
+        {id:"fun-tag", style:{color:"red"}}, 
+        "Hello"
+    );
+    //show it to the users (tag, location)
+    ReactDOM.render(span, root);
+    //opposit order to make the construnctor, run the code with vanilla js
+</script>
+</html>

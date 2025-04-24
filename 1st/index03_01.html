@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="root"></div>
+</body>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<!-- for jsx -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<!-- Creating React Element //Easier way-->
+<script type="text/babel">  
+    //Not So Good Way to count
+    //jsx내에서 변수 부르는 방법{}
+    //최초의 렌더링 말고 ui업데이트하기:변하는 변수값 가져오기 위해
+    //vanilla와 비교해서 좋은 점- 바뀐 부분만 새로 가져온다.
+    const root = document.getElementById("root");
+    let counter = 0;
+    function countUp() {
+        counter = counter + 1;
+        render();
+    };
+    function render() { 
+        ReactDOM.render(<Container/>, root);
+    }
+    const Container = () => (
+        <div>
+            <h3>Total Click : {counter} </h3>
+            <button onClick={countUp}>Click me</button>
+        </div>);
+    // ReactDOM.render(<Container/>, root);
+    render();
+</script>
+</html>

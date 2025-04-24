@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="root"></div>
+</body>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<!-- for jsx -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<!-- about props -->
+
+<script type="text/babel">  
+
+    function Btn({text, onClick}){        
+        // console.log(propName); 
+        // console.log(propName, big); 
+        
+        return (<button 
+            onClick = {onClick}
+            style={{        
+            backgroundColor:"tomato",
+            color:"white",
+            padding:"10px 20px",
+            border:"0",
+            borderRadius:"10px",
+            fontSize:big ? 18: 16,
+        }}>{text}
+        </button>)
+    }
+
+    function App () {
+        const [value, setValue] =React.useState("Save Change");
+        const changeValue = () => setValue("Revert Changes");
+        return(
+            <div>
+                <Btn text={value} onClick={changeValue}/>
+                {/*jsx내의onclick은 사실 이벤트리스너가 아니라 prop의 이름일 뿐이다.*/}
+                {/*jsx 바깥의 onclick은 진짜 이벤트 리스너*/}
+                <Btn text="contiue"/>
+            </div>
+            );
+        }
+    const root = document.getElementById("root");
+    ReactDOM.render(<App/>, root);
+</script>
+</html>

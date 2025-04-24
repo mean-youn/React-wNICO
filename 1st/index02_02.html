@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="root"></div>
+</body>
+<!-- starting react -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+<!-- Creating React //Most difficult way-->
+<script>
+    // tag, props, content
+    // props could be id, class or style or event listener!!
+    const root = document.getElementById("root");
+    const h3 = React.createElement(
+        "h3", 
+        {
+            id:"title",
+            onMouseEnter: () => console.log('mouse enter'),
+        },
+        "Hello"
+    );
+    //can register eventlistner as property
+    const btn = React.createElement(
+        "button", 
+        {
+            onClick:()=> console.log("im clicked"),
+            style: {
+                backgroundColor:"tomato",
+            },
+        }, 
+        "Click me"
+    );
+    // rendering several tags = create a component which has two components.
+    const container = React.createElement("div", null, [h3, btn])
+    ReactDOM.render(container, root);
+</script>
+</html>

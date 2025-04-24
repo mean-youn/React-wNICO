@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="root"></div>
+</body>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<!-- for jsx -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<!-- Creating React Element //Easier way-->
+<script type="text/babel">  
+    //Best Way to count
+    const root = document.getElementById("root");
+    function App () {
+        //  React.useState(초기값, 함수)
+        const [counter, modifier] = React.useState(1);
+        return(
+            <div>
+                <h3>Total Click : 0</h3>
+                <button>Click me</button>
+            </div>
+        );
+    }
+    ReactDOM.render(<App/>, root);
+
+    const food =["tomato", "potato"];
+    // const to = food[0];
+    // const po = food[1];
+
+    //배열에 특정값 할당하여 그 값으로 배열 값 가져오기
+    const [myFavFood, yourFavFood] = food;
+</script>
+</html>
