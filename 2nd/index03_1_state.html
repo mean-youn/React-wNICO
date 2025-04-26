@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="root"></div>
+</body>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- for jsx -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        //about STATE
+        //:where data will be, 
+
+        //not so good way to make counter 
+            const root = document.getElementById("root");
+            let counter = 0
+            function countUp() {
+                counter = counter + 1;
+                render();
+            };
+            function render(){
+                ReactDOM.render(<Container />, root);
+            };
+            const Container = () => (
+            <div>
+                <h3 id="title">
+                    Total CLick: {counter}
+                </h3>
+                <button onClick={countUp}>
+                    click
+                </button>
+            </div>);
+
+            render();
+            //when check on inspect *only changed part* is updated
+    </script>
+</html>

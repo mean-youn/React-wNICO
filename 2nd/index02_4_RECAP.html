@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="root"></div>
+</body>
+    <!-- for interactive app -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <!-- for showing things in react on body  -->
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script>
+        // recap
+            const root = document.getElementById("root");
+            const h3 = React.createElement(
+                "h3", //html tag
+                {
+                   onMouseEnter: () => console.log(1),                   
+                }, //props including argument, as object form.
+                "HAHA" //content
+            ); 
+            const btn = React.createElement(
+                "button",
+                {
+                    onClick : () => console.log("clicked"), // ready to use event-listner <==why react is easy
+                },
+                "Click ME"
+            )
+            const div = React.createElement("div", null, [h3, btn])// (대상, id/class/event listner, content)
+            ReactDOM.render(div, root);
+    </script>
+</html>

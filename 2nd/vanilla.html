@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <!-- <h1>Run React from 0</h1>
+    <p>Understanding instead of memorizing through comparing with vanilla js</p> -->
+    <span>Total Clicks : 0</span>
+    <button id="btn">Click</button>
+</body>
+<script>
+    let counter = 1;
+    //01. grab
+    const button = document.getElementById('btn');
+    const span = document.querySelector('span');
+    function handleClick(){
+        //02. counts
+        counter = counter + 1;
+        //03. show on the span
+        span.innerText = `Total clicks : ${counter}`        
+    }
+    button.addEventListener("click", handleClick);
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="root"></div>
+</body>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- for jsx -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        //about STATE
+        //:where data will be, 
+
+        //best way to make counter 
+            const root = document.getElementById("root");
+
+            function App () {
+                const [counter, modifier] = React.useState(0);
+                // const counter = 0;
+                // function countUP(){
+
+                // }
+                // these two value and function is replace as a useState();
+
+                //take out a value from array in shortcut
+                // const food = ["cheese", "water"];
+                // const [myFavFood, ourEssential] = food;
+
+                return(
+                <div>
+                        <h3 id="title">
+                            Total CLick: {counter}
+                        </h3>
+                        <button >
+                            click
+                        </button>
+                </div>);
+            }
+ 
+            ReactDOM.render(<App />, root);
+    </script>
+</html>

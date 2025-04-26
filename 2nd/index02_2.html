@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="root"></div>
+</body>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script>
+        // hard way just for better understanding  **body안에 직접 적는 것은 거의 없이 스크립트에서 생성해서 삽입하고 관리한다.**
+        // that's the power of React.js = start in js and end in it.
+            const root = document.getElementById("root");
+            //span 변수명을 가진 span태그 생성
+            const span = React.createElement(
+                "span", 
+                {id : "fun", style:{color: "tomato", fontWeight:"600"}}, 
+                "HAHA"
+            ); //argument를 여러 개 가질 수 있다. 태그종류-아이디-내용
+            //span을 body안에 이식 <= reactDOm을 사용.주로 root를 뿌려놓고 시작한다.
+            ReactDOM.render(span, root);
+    </script>
+</html>

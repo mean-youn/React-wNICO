@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="root"></div>
+</body>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- for jsx -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+            const root = document.getElementById("root");
+            function Title () {
+                return(
+                    <h3 id="title" onMouseEnter={() => console.log("mouse")}>
+                    This is Title
+                </h3>
+                )
+            };
+            const Btn = () => (
+                <button style={{backgroundColor:"tomato"}}
+                onClick={()=> console.log("clicked")}>
+                click
+                </button>)
+
+            //jsx식 표현
+            // ***component의 첫글자는 대문자여야함 : html태그와 구분하기 위해
+            const Container = () => (
+            <div>
+                <button>Normal button</button>
+                <Title/>
+                <Btn/>
+            </div>);
+
+            ReactDOM.render(<Container />, root);
+    </script>
+</html>

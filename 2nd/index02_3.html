@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="root"></div>
+</body>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script>
+        // hard way just for better understanding 
+            const root = document.getElementById("root");
+            const h3 = React.createElement(
+                "h3", 
+                {
+                   onMouseEnter: () => console.log(1),                   
+                },
+                "HAHA"
+            ); 
+            const btn = React.createElement(
+                "button",
+                {
+                    onClick : () => console.log("clicked"), //can have event listner as prop
+                },
+                "Click ME"
+            )
+            const div = React.createElement("div", null, [h3, btn])//a component which has two other components
+            ReactDOM.render(div, root);
+    </script>
+</html>

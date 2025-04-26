@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="root"></div>
+</body>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- for jsx -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel"> // need to write "type/babel" when use babel.
+        // JSX
+        //a syntax which is expanding javascript and look a lot like html so easy to use
+        // need babel(code transformer) for make browser use jsx.
+
+            const root = document.getElementById("root");
+            const Title = (
+                <h3 id="title" onMouseEnter={() => console.log("mouse")}>
+                    This is Title
+                </h3>
+            );
+            const Btn = (
+                <button style={{backgroundColor:"tomato"}}
+                onClick={()=> console.log("clicked")}>
+                click
+                </button>)
+            const container = React.createElement("div", null, [Title, Btn])
+            ReactDOM.render(container, root);
+    </script>
+</html>
