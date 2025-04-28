@@ -14,17 +14,12 @@
             function App () {
                 // minuets to hours
 
-                const [amount, setMinutes] = React.useState(0);
-                const [flipped, setFlipped] = React.useState(false);
+                const [minutes, setMinutes] = React.useState(0);
                 const onChange = (event) =>{
                     // console.log(event.target.value);
                     setMinutes(event.target.value);   
                 }
                 const reset = () => setMinutes(0)
-                const onFlip = () => {
-                    setFlipped(current => !current);
-                    reset();
-                }
                 return(
                 <div>
                     <h1>Super Converter</h1>
@@ -34,26 +29,24 @@
                         <input
                             id="minutes"
                             type="number"
-                            value={flipped ? amount*60 : amount}
+                            value={minutes}
                             placeholder="Minutes"
                             onChange={onChange}
-                            disabled={flipped}
-                        />
+                                           />
                     </div>
-                   <h4>You want to convert {amount}</h4>
+                   <h4>You want to convert {minutes}</h4>
                     <div>
                         <label htmlFor="hours">Hours</label>
                         <input
                             id="hours"
                             type="number"
-                            value={flipped ? amount : Math.round(amount/60)}
-                            onChange={onChange}
+                            // value={minutes/60}
+                            value={Math.round(minutes/60)}
                             placeholder="Hours"
-                            disabled={!flipped}
+                            disable
                         />
                     </div>
                     <button onClick={reset}>Reset</button>
-                    <button onClick={onFlip}>Flip</button>
                 </div>);
             }
  

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="root"></div>
+</body>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- for jsx -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        //making an unit convertion app
+            const root = document.getElementById("root");
+
+            function App () {
+                // minuets to hours
+
+                const [minutes, setMinutes] = React.useState(0);
+                const onChange = (event) =>{
+                    // console.log(event.target.value);
+                    setMinutes(event.target.value);
+                    
+                }
+                return(
+                <div>
+                    <h1>Super Converter</h1>
+                    {/*some certain words like 'for' is not available on JSX we use htmlFor instead of 'for'*/}
+                    <label htmlFor="minutes">Minutes</label>
+                    <input 
+                        id="minutes" 
+                        type="number" 
+                        value={minutes}
+                        placeholder="Minutes"
+                        onChange={onChange}
+                   />
+                   <h4>You want to convert {minutes}</h4>
+                    <label htmlFor="hours">Hours</label>
+                    <input id="hours" type="number" placeholder="Hours"/>
+                </div>);
+            }
+ 
+            ReactDOM.render(<App />, root);
+    </script>
+</html>
