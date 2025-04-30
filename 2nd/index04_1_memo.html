@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="root"></div>
+</body>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- for jsx -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        //about props
+
+        function Btn ({ gogogoo, onFunc }){
+            console.log(gogogoo, "was rendred");
+            
+            return (
+                <button 
+                    //여기에 onClick이 달려야 이벤트 리스너임
+                    onClick={onFunc}
+                    style={{
+                        border:"none",
+                    backgroundColor:"#eee",
+                    padding:"10px 20px",
+                    borderRadius:"15px",
+                    }}  
+                >
+                {gogogoo}
+
+                </button>
+            )
+        }
+        //react memo : prop이 변하지 않으면 다시 렌더 되지않게 하는 방법
+        //렌더링 속도를 줄여준다.
+        //자주 쓰이는 기능은 없다.
+        const MemorizedBtn = React.memo(Btn);
+
+        function App () {
+            const [value, setValue] = React.useState("Save Changes");
+            const ChangeValue = () => setValue("Revert");
+            return(
+                <div>
+                    <MemorizedBtn gogogoo={value} onFunc={ChangeValue}/>
+                    {/*1 여기에 달린 onCLick등은 이벤트 리스너가 아니라 prop중 하나일 뿐이다. 실제 태그에 들어가지 않는다.*/}
+                    <MemorizedBtn gogogoo="continue" t="tile"/>
+                </div>);
+        }
+                
+        const root = document.getElementById("root");
+        ReactDOM.render(<App />, root);
+    </script>
+</html>

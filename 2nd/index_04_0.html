@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="root"></div>
+</body>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- for jsx -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        //about props
+        //make parents compoonent send datas to child component
+        
+        //reusable component
+        // const [name, setName] = React.useState('');
+
+        function Btn (propLearn, x) {//부모에서 정해둔 사용자 값은 자식의 첫번째인자로 들어간다.
+            // console.log(propLearn);            
+            return (
+                <button 
+                    style={{
+                    border:"none",
+                    backgroundColor:"#eee",
+                    padding:"10px 20px",
+                    borderRadius:"15px"
+                    }}  
+                >
+                {propLearn.gogogoo}
+
+                </button>
+            )
+        }
+        //shortcut
+        function Btn2 ({gogogoo, d}){
+            // console.log(gogogoo, d);
+            
+            return (
+                <button 
+                    style={{
+                    border:"none",
+                    backgroundColor:"#eee",
+                    padding:"10px 20px",
+                    borderRadius:"15px",
+                    fontSize: d ? 18 : 13,
+                    }}  
+                >
+                {gogogoo}
+
+                </button>
+            )
+        }
+        function App () {
+            return(
+                <div>
+                    <Btn gogogoo="Save" w="wise"/>
+                    <Btn gogogoo="continue" t="tile"/>
+                    <Btn2 gogogoo="ThisIsShortCut" d={true}/>
+                    <Btn2 gogogoo="another" c="cat"/>
+                </div>);
+        }
+                
+        const root = document.getElementById("root");
+        ReactDOM.render(<App />, root);
+    </script>
+</html>
